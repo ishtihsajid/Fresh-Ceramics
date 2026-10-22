@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── Fresh Ceramics Design Tokens ── */
+    --soil:       #0F0F0D;   /* Near-black warm */
+    --ash:        #F5F3EF;   /* Warm alabaster */
+    --earth:      #2C2416;   /* Deep brown */
+    --clay:       #B5A99A;   /* Neutral mid */
+    --verdigris:  #4A7C59;   /* Sustainability green */
+    --fresh-red:  #ED1C24;   /* Brand accent */
+    --graphite:   #5E5E5E;   /* Body copy */
+    --bone:       #E8E4DC;   /* Light divider */
+
+    /* ── Typography Scale ── */
+    --font-display: 'Cormorant Garant', Georgia, serif;
+    --font-body:    'DM Sans', system-ui, sans-serif;
+    --font-mono:    'DM Mono', monospace;
+  }
+
+  html {
+    scroll-behavior: auto; /* Lenis takes over */
+    background-color: var(--soil);
+    color: var(--ash);
+    font-family: var(--font-body);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html::-webkit-scrollbar { display: none; }
+  *::-webkit-scrollbar    { display: none; }
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    box-sizing: border-box;
+  }
+
+  body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: none;
+    background-color: var(--soil);
+  }
+}
+
+@layer components {
+  /* ── Display Typography ── */
+  .display-xl {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 10vw, 11rem);
+    font-weight: 300;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+  }
+  .display-lg {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 7.5rem);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+  .display-md {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4.5vw, 5rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  .chapter-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+  .body-editorial {
+    font-family: var(--font-body);
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+    font-weight: 300;
+    line-height: 1.75;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── Magnetic cursor dot ── */
+  .cursor-dot {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: var(--fresh-red);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+  }
+  .cursor-ring {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s cubic-bezier(0.16,1,0.3,1),
+                height 0.5s cubic-bezier(0.16,1,0.3,1),
+                border-color 0.3s ease;
+  }
+  .cursor-ring.hovering {
+    width: 64px;
+    height: 64px;
+    border-color: var(--fresh-red);
+  }
+
+  /* ── Full-bleed chapter section (pinned realm screen mould) ── */
+  .chapter {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    will-change: transform;
+  }
+
+  /* ── Surface Ceramic Light Sheen Animation ── */
+  @keyframes surface-sheen {
+    0% {
+      transform: translateX(-120%) skewX(-20deg);
+      opacity: 0;
+    }
+    30% {
+      opacity: 0.85;
+    }
+    70% {
+      opacity: 0.85;
+    }
+    100% {
+      transform: translateX(250%) skewX(-20deg);
+      opacity: 0;
+    }
+  }
+
+  .surface-sheen-active {
+    animation: surface-sheen 2.4s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  }
+
+  /* ── Hairline rule ── */
+  .hairline {
+    width: 1px;
+    background: currentColor;
+    opacity: 0.2;
+  }
+  .hairline-h {
+    height: 1px;
+    background: currentColor;
+    opacity: 0.2;
+  }
+
+  /* ── Pill button ── */
+  .pill-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: background 0.4s ease, color 0.4s ease;
+  }
+  .pill-btn:hover {
+    background: var(--fresh-red);
+    border-color: var(--fresh-red);
+    color: white;
+  }
+
+  /* ── Image reveal mask ── */
+  .img-reveal {
+    clip-path: inset(100% 0 0 0);
+    transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .img-reveal.revealed {
+    clip-path: inset(0% 0 0 0);
+  }
+
+  /* ── Lenis scroll container ── */
+  html.lenis {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  /* Soil (dark) backgrounds */
+  .bg-soil   { background-color: var(--soil); }
+  .bg-ash    { background-color: var(--ash); }
+  .bg-earth  { background-color: var(--earth); }
+  .bg-clay   { background-color: var(--clay); }
+
+  /* Text colors */
+  .text-soil      { color: var(--soil); }
+  .text-ash       { color: var(--ash); }
+  .text-clay      { color: var(--clay); }
+  .text-verdigris { color: var(--verdigris); }
+  .text-fresh-red { color: var(--fresh-red); }
+
+  /* Accent border */
+  .border-bone     { border-color: var(--bone); }
+  .border-fresh-red{ border-color: var(--fresh-red); }
+
+  /* Font stacks */
+  .font-display { font-family: var(--font-display); }
+  .font-mono-fc { font-family: var(--font-mono); }
+
+  /* Noise texture overlay */
+  .noise::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.03;
+    z-index: 1;
+    mix-blend-mode: overlay;
+  }
+}

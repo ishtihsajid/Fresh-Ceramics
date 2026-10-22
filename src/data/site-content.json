@@ -1,0 +1,270 @@
+{
+  "chapter0": {
+    "title": "Fresh",
+    "brandName": "Ceramics",
+    "taglineEn": "A Fresh Start to an Aesthetic Life",
+    "taglineBn": "নান্দনিক জীবনের ফ্রেশ সূচনা",
+    "scrollLabel": "Scroll"
+  },
+  "chapter1": {
+    "label": "I — Ground",
+    "headingItalic": "Born from",
+    "headingBold": "Bangladesh",
+    "body1": "In the fertile riverine belt stretching across Bangladesh, a factory rose not to simply produce tiles — but to reimagine what Bangladeshi craftsmanship could mean for the world.",
+    "body2": "Fresh Ceramics began with a commitment: every tile carries the honest weight of the land it comes from.",
+    "imageCaption": "[Raw clay — factory floor, Narsingdi]"
+  },
+  "chapter2": {
+    "label": "II — Craft",
+    "headingItalic": "Precision",
+    "headingBold": "is our promise",
+    "stats": [
+      { "num": "14", "label": "Quality control tests per batch" },
+      { "num": "98%", "label": "A-grade output maintained" },
+      { "num": "1300°", "label": "Celsius — peak kiln temperature" },
+      { "num": "385+", "label": "SKUs across 8 collections" }
+    ],
+    "ctaExplore": "Explore All Products →",
+    "ctaCatalogue": "Download Catalogue"
+  },
+  "chapter3": {
+    "label": "III — Responsibility",
+    "heading1": "When quality and sustainability meet,",
+    "heading2": "Fresh tiles become the natural choice.",
+    "pillars": [
+      { "icon": "◈", "title": "Zero-Discharge", "desc": "Closed-loop water recycling — no wastewater released into the environment." },
+      { "icon": "◉", "title": "Solar-First", "desc": "40% of factory energy from on-site solar panels, targeting 100% by 2028." },
+      { "icon": "◎", "title": "Kiln Efficiency", "desc": "Roller kilns at 18% lower BTU than industry average, ISO 50001 certified." },
+      { "icon": "◌", "title": "Dust Suppression", "desc": "Baghouse filtration at every grinding and glazing station — PM2.5 compliant." },
+      { "icon": "◍", "title": "Packaging Protect", "desc": "Double-wall corrugated and corner-foam packaging — 96% damage-free delivery." },
+      { "icon": "◐", "title": "UN SDG 11 Aligned", "desc": "Heatproof tiles reduce urban heat island effect — supporting sustainable cities." }
+    ]
+  },
+  "chapter4": {
+    "label": "IV — Surface",
+    "headingItalic": "Every surface,",
+    "headingBold": "a declaration",
+    "ctaCollection": "Full Collection →",
+    "ctaVisualizer": "Try Room Visualizer →",
+    "ctaCatalogue": "Download 2026 Catalogue",
+    "surfaces": [
+      {
+        "id": "pgvt-mirror",
+        "name": "PGVT Mirror Polished",
+        "finish": "Glazed Vitrified Slab",
+        "tag": "NANO-POLISHED MONOLITH",
+        "bengali": "মিরর পলিশড পিজিভিটি",
+        "desc": "Italian nano-crystallized porcelain glaze with zero micro-pores and optical-grade mirror reflection.",
+        "slabImage": "/images/surfaces/pgvt-mirror-slab.webp",
+        "textureImage": "/images/surfaces/pgvt-mirror-reflection.webp",
+        "glossIndex": "98 GU Mirror",
+        "punchDepth": "0.0 mm Mirror Flat",
+        "slipRating": "R9 Architectural",
+        "lightBehavior": "Specular Direct Mirror Reflection",
+        "highlights": ["Zero Micro-Pores", "Italian Nano Seal", "Liquid Reflection"]
+      },
+      {
+        "id": "double-charge",
+        "name": "Double Charge Vitrified",
+        "finish": "Dual-Layer Vitrified",
+        "tag": "3-4MM WEAR MATRIX",
+        "bengali": "ডাবল চার্জ ভিট্রিফাইড",
+        "desc": "Dual-layer hydraulic compaction fuses a deep granular porcelain matrix that never fades under heavy foot traffic.",
+        "slabImage": "/images/surfaces/double-charge-slab.webp",
+        "textureImage": "/images/surfaces/double-charge-texture.webp",
+        "glossIndex": "92 GU High Luster",
+        "punchDepth": "0.2 mm Granular Compact",
+        "slipRating": "R10 High Traction",
+        "lightBehavior": "Subsurface Mineral Depth",
+        "highlights": ["Only BD Producer", "Through-Body Grain", "MOR ≥38 N/mm²"]
+      },
+      {
+        "id": "high-glossy",
+        "name": "High Glossy & Punch",
+        "finish": "Contoured Specular Relief",
+        "tag": "3D SPECULAR EMBOSSING",
+        "bengali": "হাই গ্লসি ও গ্লসি পাঞ্চ",
+        "desc": "Dimensional punch contours that catch and refract ambient light, creating dynamic sculptural wall movement.",
+        "slabImage": "/images/surfaces/high-glossy-slab.webp",
+        "textureImage": "/images/surfaces/high-glossy-punch.webp",
+        "glossIndex": "95 GU Specular",
+        "punchDepth": "1.2 mm Dimensional Relief",
+        "slipRating": "R9 Wall & Living",
+        "lightBehavior": "Multi-Angle Prismatic Bounce",
+        "highlights": ["3D Sculpted Relief", "Prismatic Light Catch", "Stain Barrier"]
+      },
+      {
+        "id": "matte-mattestic",
+        "name": "Matte & Mattestic",
+        "finish": "Velvety Anti-Glare",
+        "tag": "DIFFUSE ARCHITECTURAL TOUCH",
+        "bengali": "ম্যাট ও ম্যাটেস্টিক",
+        "desc": "Soft, velvety touch with anti-glare micro-texture. Diffuses harsh sun into calm ambient light.",
+        "slabImage": "/images/surfaces/matte-slab.webp",
+        "textureImage": "/images/surfaces/matte-texture.webp",
+        "glossIndex": "6 GU Anti-Glare",
+        "punchDepth": "0.4 mm Micro-Grain",
+        "slipRating": "R10 Safe Step",
+        "lightBehavior": "Soft Lambertian Diffusion",
+        "highlights": ["Anti-Glare Calm", "Fingerprint Proof", "Velvety Micro-Touch"]
+      },
+      {
+        "id": "rustic-punch",
+        "name": "Rustic Stone Punch",
+        "finish": "Chiseled Geological Cleft",
+        "tag": "DEEP TACTILE R11 GRIP",
+        "bengali": "রাস্টিক স্টোন পাঞ্চ",
+        "desc": "Raw stone cleft recreation with heavy-duty R11 slip resistance, designed for courtyards, terraces and spas.",
+        "slabImage": "/images/surfaces/rustic-stone-slab.webp",
+        "textureImage": "/images/surfaces/rustic-stone-texture.webp",
+        "glossIndex": "4 GU Geological Matte",
+        "punchDepth": "1.8 mm Chiseled Cleft",
+        "slipRating": "R11 Heavy Slip Resistant",
+        "lightBehavior": "Raking Crevice Shadows",
+        "highlights": ["R11 Heavy Grip", "Quarry Stone Cleft", "Weatherproof"]
+      },
+      {
+        "id": "candy-satin",
+        "name": "Candy & Satin Finish",
+        "finish": "Crystalline Micro-Glaze",
+        "tag": "IRIDESCENT SILK TOUCH",
+        "bengali": "ক্যান্ডি ও স্যাটিন ফিনিশ",
+        "desc": "Infused with microscopic crystalline glass beads that produce an iridescent silk touch and gemstone sparkle.",
+        "slabImage": "/images/surfaces/candy-satin-slab.webp",
+        "textureImage": "/images/surfaces/candy-satin-texture.webp",
+        "glossIndex": "75 GU Satin Luster",
+        "punchDepth": "0.6 mm Micro-Crystal Bead",
+        "slipRating": "R9 Silk Touch",
+        "lightBehavior": "Crystalline Iridescent Sheen",
+        "highlights": ["Gemstone Sparkle", "Silk Tactile Glide", "Sanctuary Luxury"]
+      }
+    ],
+    "tiles": [
+      {
+        "name": "12 PGVT 02 Mirror Polished",
+        "cat": "PGVT Monolith Series",
+        "size": "60×120 cm (1:2 Vertical)",
+        "image": "/images/surfaces/pgvt-mirror-slab.webp"
+      },
+      {
+        "name": "6 DC BE Double Charge",
+        "cat": "Double Charge Series",
+        "size": "60×60 cm Vitrified",
+        "image": "/images/surfaces/double-charge-slab.webp"
+      },
+      {
+        "name": "WP 6033 DGY Glossy Punch",
+        "cat": "Architectural Wall Series",
+        "size": "30×60 cm (1:2 Vertical)",
+        "image": "/images/surfaces/high-glossy-punch.webp"
+      },
+      {
+        "name": "6 DP M-01 Matte",
+        "cat": "Matte Architectural Series",
+        "size": "60×60 cm Vitrified",
+        "image": "/images/surfaces/matte-slab.webp"
+      },
+      {
+        "name": "W 6006 Rustic Punch",
+        "cat": "Heavy Rustic Series",
+        "size": "30×60 cm Cleft",
+        "image": "/images/surfaces/rustic-stone-slab.webp"
+      },
+      {
+        "name": "W CANDY 5073 Satin",
+        "cat": "Candy Glaze Series",
+        "size": "30×50 cm Silk",
+        "image": "/images/surfaces/candy-satin-slab.webp"
+      }
+    ]
+  },
+  "chapter5": {
+    "label": "V — Home",
+    "quote": "Crafting tales of aesthetics beyond boundaries.",
+    "body": "From Dhaka penthouses to hillside retreats in Sylhet — Fresh Ceramics tiles define the spaces where life unfolds.",
+    "ctaText": "Design Your Space →",
+    "spaces": [
+      {
+        "label": "Living Salon",
+        "presetId": "penthouse-living",
+        "desc": "Modern Duplex Lounge",
+        "gradient": "linear-gradient(160deg, #2A2D34, #1B1D22)",
+        "tileCode": "12 PGVT 02"
+      },
+      {
+        "label": "Kitchen Suite",
+        "presetId": "contemporary-kitchen",
+        "desc": "Granite & Sintered Porcelain",
+        "gradient": "linear-gradient(160deg, #332F2C, #211E1C)",
+        "tileCode": "6 DC BE"
+      },
+      {
+        "label": "Wellness Bath",
+        "presetId": "luxury-master-bath",
+        "desc": "Minimalist Stone Sanctuary",
+        "gradient": "linear-gradient(160deg, #1E2228, #14171B)",
+        "tileCode": "8 PGVT 02"
+      },
+      {
+        "label": "Corporate Atrium",
+        "presetId": "corporate-lobby",
+        "desc": "Commercial Reflective Vitrified",
+        "gradient": "linear-gradient(160deg, #2D2824, #181513)",
+        "tileCode": "12 DC BE"
+      }
+    ]
+  },
+  "chapter6": {
+    "label": "VI — Hands",
+    "headingItalic": "The hands",
+    "headingBold": "behind every tile",
+    "body1": "Over 2,000 skilled artisans, quality inspectors, and fitters carry our mission from the kiln floor to your home. Every year, Fresh hosts nationwide Fitter Meets — sharing technique, building community, honouring mastery.",
+    "body2": "\"The boat photograph that became a viral emblem: our tile, our river, our people — crafting tales of aesthetics beyond boundaries.\"",
+    "ctaText": "Meet Our Craftsmen →"
+  },
+  "chapter7": {
+    "label": "VII — Places",
+    "statNum": "81",
+    "heading": "showrooms across Bangladesh",
+    "body": "From Teknaf to Tetulia, our showrooms bring the full Fresh experience to your city. Explore Double Charge displays, speak with our design consultants, and touch the quality for yourself.",
+    "mapBadge": "Geographic Network • 81 Showrooms",
+    "ctaText": "Find Your Showroom →"
+  },
+  "chapter8": {
+    "label": "VIII — Learning",
+    "headingItalic": "Knowledge",
+    "headingBold": "is our gift",
+    "ctaText": "Visit Knowledge Hub →",
+    "videos": [
+      { "views": "230K", "title": "How to choose the right tile size", "tag": "Guide" },
+      { "views": "185K", "title": "Tile installation secrets from the pros", "tag": "Tutorial" },
+      { "views": "148K", "title": "Double Charge vs Vitrified — the truth", "tag": "Comparison" },
+      { "views": "96K", "title": "Sustainability in tile manufacturing", "tag": "Documentary" }
+    ]
+  },
+  "chapter9": {
+    "label": "IX — Campaigns",
+    "title": "Eid Express",
+    "body1": "Among the Eid crowds of 2024, we brought our story to the streets — a campaign that captured the nation's joy and our brand's promise: every celebration deserves the finest surface.",
+    "body2": "Nationwide fitter meets · Community training · Brand activations · Social impact storytelling",
+    "ctaText": "Our Initiatives →"
+  },
+  "chapter10": {
+    "label": "X — Horizon",
+    "headingItalic": "The future",
+    "headingBold": "is Fresh",
+    "body1": "We believe that when quality and sustainability meet, the choice becomes natural — for architects, for homeowners, for Bangladesh, and for the planet.",
+    "body2": "Committed to ISO 9001 · ISO 14001 · UN SDG 11 · Zero-Discharge manufacturing · Bangladesh's only full-line Double Charge producer",
+    "ctaExplore": "Explore Full Collection →",
+    "ctaShowroom": "Find a Showroom",
+    "ctaVisualizer": "Room Visualizer"
+  },
+  "footer": {
+    "tagline": "A Fresh Start to an Aesthetic Life.\nBangladesh's responsible tile manufacturer.",
+    "phone": "+880 9666-777-666",
+    "email": "info@freshceramics.com",
+    "address": "Fresh Ceramics Head Office, Fresh Villa, House 46, Road 11, Block C, Banani, Dhaka-1213, Bangladesh",
+    "copyright": "© 2026 Fresh Ceramics Ltd. All rights reserved.",
+    "certifications": "ISO 9001 · ISO 14001 · UN SDG 11 Aligned"
+  }
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "id": "admin-1",
+    "name": "Super Admin",
+    "email": "admin@freshceramics.com",
+    "password": "Fresh2026!",
+    "role": "Chief Administrator",
+    "createdAt": "2026-01-01T00:00:00Z"
+  }
+]
