@@ -53,11 +53,9 @@ function ChapterThreshold({ data }: { data: typeof defaultSiteContent.chapter0 }
           pinSpacing: true,
           onUpdate: (self) => {
             if (self.progress <= 0.02) {
-              gsap.set([wordRef.current, lineRef.current, subRef.current], {
-                opacity: 1,
-                y: 0,
-                scaleX: 1,
-              });
+              if (wordRef.current) wordRef.current.style.opacity = '1';
+              if (lineRef.current) lineRef.current.style.opacity = '1';
+              if (subRef.current) subRef.current.style.opacity = '1';
             }
           },
           onLeaveBack: () => {
@@ -72,10 +70,10 @@ function ChapterThreshold({ data }: { data: typeof defaultSiteContent.chapter0 }
         },
       });
 
-      // Synchronize exit motion in lockstep: text and red line track together
-      tl.to(wordRef.current, { y: -70, opacity: 0, duration: 1, ease: 'power2.in' }, 0.25)
-        .to(lineRef.current, { y: -60, scaleX: 0.3, opacity: 0, duration: 1, ease: 'power2.in' }, 0.25)
-        .to(subRef.current,  { y: -50, opacity: 0, duration: 0.9, ease: 'power2.in' }, 0.3);
+      // Synchronize exit motion in lockstep: text and red line track together using fromTo for mathematical reverse accuracy
+      tl.fromTo(wordRef.current, { y: 0, opacity: 1 }, { y: -70, opacity: 0, duration: 1, ease: 'power2.in' }, 0.25)
+        .fromTo(lineRef.current, { y: 0, scaleX: 1, opacity: 1 }, { y: -60, scaleX: 0.3, opacity: 0, duration: 1, ease: 'power2.in' }, 0.25)
+        .fromTo(subRef.current,  { y: 0, opacity: 1 }, { y: -50, opacity: 0, duration: 0.9, ease: 'power2.in' }, 0.3);
     });
 
     // Mobile viewports (< 768px): smooth fade out on scroll without pin
@@ -100,7 +98,28 @@ function ChapterThreshold({ data }: { data: typeof defaultSiteContent.chapter0 }
       });
     });
 
-    return () => mm.revert();
+    const handleScrollTop = () => {
+      if (window.scrollY < 20) {
+        if (wordRef.current) {
+          wordRef.current.style.opacity = '1';
+          wordRef.current.style.transform = 'none';
+        }
+        if (lineRef.current) {
+          lineRef.current.style.opacity = '1';
+          lineRef.current.style.transform = 'none';
+        }
+        if (subRef.current) {
+          subRef.current.style.opacity = '1';
+          subRef.current.style.transform = 'none';
+        }
+      }
+    };
+    window.addEventListener('scroll', handleScrollTop, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScrollTop);
+      mm.revert();
+    };
   }, []);
 
   return (
@@ -197,9 +216,9 @@ function ChapterGround({ data }: { data: typeof defaultSiteContent.chapter1 }) {
         },
       });
 
-      tl.from(txtRef.current, { x: -40, opacity: 0, duration: 1.5 }, 0)
-        .from(imgRef.current, { scale: 1.08, opacity: 0, duration: 2 }, 0.2)
-        .to(imgRef.current,   { scale: 1.01, duration: 3 }, 1);
+      tl.from(txtRef.current, { x: -30, opacity: 0.4, duration: 1 }, 0)
+        .from(imgRef.current, { scale: 1.05, opacity: 0.5, duration: 1.5 }, 0.1)
+        .to(imgRef.current,   { scale: 1.0, duration: 2 }, 1);
     });
 
     mm.add('(max-width: 767px)', () => {
@@ -301,9 +320,9 @@ function ChapterCraft({ data }: { data: typeof defaultSiteContent.chapter2 }) {
         },
       });
 
-      tl.from(numRef.current, { opacity: 0, scale: 1.15, duration: 1.5 }, 0);
+      tl.from(numRef.current, { opacity: 0, scale: 1.1, duration: 1 }, 0);
       statRefs.current.forEach((el, i) => {
-        if (el) tl.from(el, { x: 30, opacity: 0, duration: 1 }, 0.2 + i * 0.15);
+        if (el) tl.from(el, { x: 25, opacity: 0.35, duration: 0.8 }, 0.1 + i * 0.15);
       });
     });
 
@@ -527,8 +546,8 @@ function ChapterSurface({ data }: { data: typeof defaultSiteContent.chapter4 }) 
         },
       });
 
-      tl.from(titleRef.current, { y: 30, opacity: 0, duration: 1.2 }, 0)
-        .from(gridRef.current,  { y: 40, opacity: 0, duration: 1.5 }, 0.2);
+      tl.from(titleRef.current, { y: 20, opacity: 0.4, duration: 0.8 }, 0)
+        .from(gridRef.current,  { y: 25, opacity: 0.4, duration: 1 }, 0.1);
     });
 
     mm.add('(max-width: 767px)', () => {
@@ -616,7 +635,7 @@ function ChapterSurface({ data }: { data: typeof defaultSiteContent.chapter4 }) 
                     src={s.slabImage}
                     alt={s.name}
                     className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
-                      showTexture ? 'opacity-0 scale-105' : 'opacity-100 scale-100'
+                      showTexture ? 'opacity-0 scale-105' : 'opacity-100 scale-100 group-hover:opacity-0 group-hover:scale-105'
                     }`}
                     loading="lazy"
                   />
@@ -626,7 +645,7 @@ function ChapterSurface({ data }: { data: typeof defaultSiteContent.chapter4 }) 
                     src={s.textureImage}
                     alt={`${s.name} surface texture`}
                     className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
-                      showTexture ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
+                      showTexture ? 'opacity-100 scale-105' : 'opacity-0 scale-100 group-hover:opacity-100 group-hover:scale-105'
                     }`}
                     loading="lazy"
                   />
@@ -735,8 +754,8 @@ function ChapterHome({ data }: { data: typeof defaultSiteContent.chapter5 }) {
           pinSpacing: true,
         },
       });
-      tl.from(quoteRef.current, { y: 30, opacity: 0, duration: 1.2 }, 0)
-        .from(imgGrid.current,  { x: 30, opacity: 0, duration: 1.5 }, 0.2);
+      tl.from(quoteRef.current, { y: 20, opacity: 0.4, duration: 0.8 }, 0)
+        .from(imgGrid.current,  { x: 20, opacity: 0.4, duration: 1 }, 0.1);
     });
 
     mm.add('(max-width: 767px)', () => {
@@ -849,8 +868,8 @@ function ChapterHands({ data }: { data: typeof defaultSiteContent.chapter6 }) {
           pinSpacing: true,
         },
       });
-      tl.from(portraitRef.current, { scale: 1.08, opacity: 0, duration: 2 }, 0)
-        .from(textRef.current,     { x: 30, opacity: 0, duration: 1.5 }, 0.2);
+      tl.from(portraitRef.current, { scale: 1.05, opacity: 0.5, duration: 1.2 }, 0)
+        .from(textRef.current,     { x: 25, opacity: 0.4, duration: 1 }, 0.1);
     });
 
     mm.add('(max-width: 767px)', () => {
@@ -954,8 +973,8 @@ function ChapterPlaces({ data }: { data: typeof defaultSiteContent.chapter7 }) {
           pinSpacing: true,
         },
       });
-      tl.from(numRef2.current, { opacity: 0, y: 30, duration: 1.5 }, 0)
-        .from(mapRef.current,  { opacity: 0, scale: 0.96, duration: 2 }, 0.2);
+      tl.from(numRef2.current, { opacity: 0.4, y: 20, duration: 1 }, 0)
+        .from(mapRef.current,  { opacity: 0.5, scale: 0.98, duration: 1.2 }, 0.1);
     });
 
     mm.add('(max-width: 767px)', () => {
@@ -1121,7 +1140,7 @@ function ChapterLearning({ data }: { data: typeof defaultSiteContent.chapter8 })
         },
       });
       cardsRef.current.forEach((el, i) => {
-        if (el) tl.from(el, { y: 35, opacity: 0, duration: 1 }, i * 0.15);
+        if (el) tl.from(el, { y: 25, opacity: 0.4, duration: 0.8 }, i * 0.12);
       });
     });
 
@@ -1224,8 +1243,8 @@ function ChapterCampaigns({ data }: { data: typeof defaultSiteContent.chapter9 }
           pinSpacing: true,
         },
       });
-      tl.from(bgRef.current, { scale: 1.08, duration: 2 }, 0)
-        .from(txtRef.current, { y: 25, opacity: 0, duration: 1.2 }, 0.2);
+      tl.from(bgRef.current, { scale: 1.05, duration: 1.5 }, 0)
+        .from(txtRef.current, { y: 20, opacity: 0.4, duration: 1 }, 0.1);
     });
 
     mm.add('(max-width: 767px)', () => {
@@ -1314,8 +1333,8 @@ function ChapterHorizon({ data }: { data: typeof defaultSiteContent.chapter10 })
           pinSpacing: true,
         },
       });
-      tl.from(txtRef.current,  { y: 35, opacity: 0, duration: 1.5 }, 0)
-        .from(lineRef2.current, { scaleX: 0, duration: 1.5, transformOrigin: 'center center' }, 0.2);
+      tl.from(txtRef.current,  { y: 25, opacity: 0.4, duration: 1 }, 0)
+        .from(lineRef2.current, { scaleX: 0.3, duration: 1, transformOrigin: 'center center' }, 0.1);
     });
 
     mm.add('(max-width: 767px)', () => {
@@ -1517,6 +1536,83 @@ export default function HomePage() {
         }
       })
       .catch(() => {});
+  }, []);
+
+  // Automatic Realm Mould Snapping Controller:
+  // When scrolling pauses, if the scroll position is in the transition gap between chapters,
+  // automatically snaps the incoming chapter into the screen mould so nothing cuts off.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    let debounceTimer: NodeJS.Timeout | null = null;
+    let isSnapping = false;
+
+    const handleScrollSnap = () => {
+      if (isSnapping) return;
+      if (window.innerWidth < 768) return;
+
+      if (debounceTimer) clearTimeout(debounceTimer);
+
+      debounceTimer = setTimeout(() => {
+        const triggers = ScrollTrigger.getAll().filter(st => st.pin && st.vars?.trigger);
+        if (triggers.length === 0) return;
+
+        // Sort triggers strictly by start position
+        const sorted = [...triggers].sort((a, b) => a.start - b.start);
+        const y = window.scrollY;
+        const vh = window.innerHeight;
+
+        // Near top snap (Threshold)
+        if (y > 0 && y < vh * 0.35) {
+          isSnapping = true;
+          const lenis = (window as any).__lenis;
+          if (lenis) {
+            lenis.scrollTo(0, {
+              duration: 0.7,
+              easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+              onComplete: () => { isSnapping = false; }
+            });
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setTimeout(() => { isSnapping = false; }, 600);
+          }
+          return;
+        }
+
+        // Inter-chapter transition gap snap
+        for (let i = 0; i < sorted.length - 1; i++) {
+          const curr = sorted[i];
+          const next = sorted[i + 1];
+
+          if (y > curr.end && y < next.start) {
+            const gap = next.start - curr.end;
+            const progressInGap = (y - curr.end) / gap;
+            const targetY = progressInGap >= 0.4 ? next.start : curr.end;
+
+            isSnapping = true;
+            const lenis = (window as any).__lenis;
+            if (lenis) {
+              lenis.scrollTo(targetY, {
+                duration: 0.7,
+                easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                onComplete: () => { isSnapping = false; }
+              });
+            } else {
+              window.scrollTo({ top: targetY, behavior: 'smooth' });
+              setTimeout(() => { isSnapping = false; }, 600);
+            }
+            return;
+          }
+        }
+      }, 160);
+    };
+
+    window.addEventListener('scroll', handleScrollSnap, { passive: true });
+
+    return () => {
+      if (debounceTimer) clearTimeout(debounceTimer);
+      window.removeEventListener('scroll', handleScrollSnap);
+    };
   }, []);
 
   return (

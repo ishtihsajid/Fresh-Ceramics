@@ -50,5 +50,7 @@ test_*.js
 check_*.js
 scratch_*.js
 take_screenshots.js
+inspect_*.js
+run_*.js
 scroll_shots.js
 capture_home_sections.js
