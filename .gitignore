@@ -31,6 +31,12 @@ Thumbs.db
 /Fresh-Ceramics-Assets/
 /Fresh-Ceramics-Assets
 
+# Tracked Optimized Web Assets
+!/public/tiles/
+!/public/tiles/**
+!/public/catalogue/
+!/public/catalogue/**
+
 # Large raw archive files
 *.zip
 *.tar.gz

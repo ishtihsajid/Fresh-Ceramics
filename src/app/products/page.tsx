@@ -201,18 +201,17 @@ export default function ProductsPage() {
           {filteredProducts.map((tile) => {
             // Normalize aspect ratio representation
             const ratioStr = (tile.aspectRatio || "").replace(":", "/");
-            const isVertical12 = ratioStr === "1/2" || tile.size.includes("60x120");
-            const isSquare = ratioStr === "1/1" || tile.size.includes("80x80") || tile.size.includes("60x60") || tile.size.includes("40x40") || tile.size.includes("30x30");
-            const isHorizontalStair = ratioStr === "2/1" || tile.size.includes("Stair");
+            const isVertical12 = ratioStr === "1/2" || (tile.widthCm === 60 && tile.heightCm === 120);
+            const isSquare = ratioStr === "1/1" || (tile.widthCm === tile.heightCm);
+            const isHorizontal = (tile.widthCm || 0) > (tile.heightCm || 0);
             
             // Calculate proportional CSS styling inside the presentation stage
             let tileBoxStyle: React.CSSProperties = {};
 
             if (isVertical12) {
-              // 60x120 or 30x60: true vertical rectangle 1:2 ratio
-              const isGrandSlab = tile.size.includes("60x120");
+              // 60x120 vertical monolith 1:2 ratio
               tileBoxStyle = {
-                height: isGrandSlab ? "95%" : "78%",
+                height: "94%",
                 aspectRatio: "1 / 2",
               };
             } else if (isSquare) {
@@ -227,26 +226,24 @@ export default function ProductsPage() {
                 width: `${pct}%`,
                 aspectRatio: "1 / 1",
               };
-            } else if (isHorizontalStair) {
+            } else if (isHorizontal) {
+              // Wall tiles & stair tiles (horizontal: 30x60, 30x50, 30x45, 25x40, 20x30)
+              let wPct = "88%";
+              if (tile.size.includes("30x60") || ratioStr === "2/1") wPct = "90%";
+              else if (tile.size.includes("30x50") || ratioStr === "5/3") wPct = "85%";
+              else if (tile.size.includes("30x45") || ratioStr === "3/2") wPct = "82%";
+              else if (tile.size.includes("25x40") || ratioStr === "8/5") wPct = "80%";
+              else if (tile.size.includes("20x30")) wPct = "74%";
+
+              const ar = tile.widthCm && tile.heightCm ? `${tile.widthCm} / ${tile.heightCm}` : "2 / 1";
               tileBoxStyle = {
-                width: "90%",
-                aspectRatio: "2 / 1",
+                width: wPct,
+                aspectRatio: ar,
               };
             } else {
-              // 30x50, 30x45, 25x40, 20x30 vertical wall tiles
-              let hPct = "82%";
-              let ar = "2 / 3";
-              if (tile.size.includes("30x50")) { hPct = "82%"; ar = "3 / 5"; }
-              else if (tile.size.includes("30x45")) { hPct = "76%"; ar = "2 / 3"; }
-              else if (tile.size.includes("25x40")) { hPct = "70%"; ar = "5 / 8"; }
-              else if (tile.size.includes("20x30")) { hPct = "60%"; ar = "2 / 3"; }
-              else if (tile.widthCm && tile.heightCm) {
-                ar = `${tile.widthCm} / ${tile.heightCm}`;
-              }
-
               tileBoxStyle = {
-                height: hPct,
-                aspectRatio: ar,
+                height: "82%",
+                aspectRatio: tile.widthCm && tile.heightCm ? `${tile.widthCm} / ${tile.heightCm}` : "2 / 3",
               };
             }
 
@@ -282,7 +279,7 @@ export default function ProductsPage() {
                   {/* Badges: Size, Aspect Ratio, Surface */}
                   <div className="absolute top-3 left-3 flex flex-col gap-1 z-10">
                     <span className="px-2 py-0.5 bg-black/85 backdrop-blur-xs text-[10px] font-mono uppercase text-gray-200 rounded-xs border border-white/15 font-semibold">
-                      {tile.size} {isVertical12 ? "• 1:2" : ""}
+                      {tile.size} {tile.aspectRatio ? `• ${tile.aspectRatio.replace('/', ':')}` : ""}
                     </span>
                     {tile.featured && (
                       <span className="px-2 py-0.5 bg-fresh-red text-white text-[9px] font-mono uppercase tracking-wider rounded-xs font-bold">

@@ -61,7 +61,7 @@ export default function AdminPage() {
   const [previewMode, setPreviewMode] = useState<"product" | "interior" | "journey">("journey");
   const [selectedPreviewProduct, setSelectedPreviewProduct] = useState<TileProduct | null>(null);
   const [selectedRoomPreset, setSelectedRoomPreset] = useState<string>("penthouse-living");
-  const [selectedRoomTile, setSelectedRoomTile] = useState<string>("/assets/products/Tiles Images of Fresh Ceramics/Floor Tiles/60X120 PGVT/12 PGVT 02.jpg");
+  const [selectedRoomTile, setSelectedRoomTile] = useState<string>("/tiles/12-pgvt-02-60x120-cm-fc-048.webp");
   const [selectedPreviewChapter, setSelectedPreviewChapter] = useState<string>("chapter0");
 
   // Notifications
@@ -1994,7 +1994,7 @@ export default function AdminPage() {
                     size: "60x60 cm",
                     finish: "Mirror Polished Vitrified",
                     concept: "Contemporary Marble",
-                    image: "/assets/products/Tiles Images of Fresh Ceramics/Floor Tiles/60X60 PGVT/6 PGVT 01.jpeg",
+                    image: "/tiles/6-pgvt-01-60x60-cm-fc-072.webp",
                     featured: true,
                     isNew: true,
                     inVisualizer: true,

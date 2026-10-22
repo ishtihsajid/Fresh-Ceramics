@@ -12,8 +12,8 @@ export default function CataloguePage() {
       title: "Fresh Ceramics Master Architectural Catalogue 2026",
       subtitle: "Complete Architectural Wall & Floor Surface Portfolio",
       pages: "128 Pages",
-      size: "PDF High Resolution • 45 MB",
-      url: "/assets/catalogue/FRESH CERAMICS 2026.pdf",
+      size: "PDF High Resolution • 16 MB",
+      url: "/catalogue/FRESH-CERAMICS-2026.pdf",
       desc: "Comprehensive reference manual for architects, interior designers, and developers. Featuring 480+ models across 60×120 cm Monoliths, Double Charge Vitrified, Mirror Polished PGVT, and Rustic wall textures.",
       featured: true,
       tags: ["Full Catalog", "Architecture Edition", "2026 Master"]
@@ -23,8 +23,8 @@ export default function CataloguePage() {
       title: "Technical Specifications & Structural Dead-Load Guide",
       subtitle: "Engineering Specs, Kiln Standards & Thermal Resistance",
       pages: "Technical Manual",
-      size: "PDF Document • Direct Download",
-      url: "/assets/catalogue/FRESH CERAMICS 2026.pdf",
+      size: "PDF Document • Direct Download • 16 MB",
+      url: "/catalogue/FRESH-CERAMICS-2026.pdf",
       desc: "Complete structural data sheets including water absorption (<0.05%), breaking strength (>1300 N), chemical stain resistance (Class 5), and UN SDG 11 heatproof rooftop insulation ratings.",
       featured: false,
       tags: ["ISO 9001 / 14001", "Engineering Specs", "Dead-Load Data"]
